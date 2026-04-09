@@ -73,6 +73,10 @@ Features:
 }
 ```
 
+## Code
+
+The training and evaluation code will be released soon. Stay tuned!
+
 ## License
 
 This project is released for academic research purposes.
