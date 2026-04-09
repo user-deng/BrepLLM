@@ -12,13 +12,8 @@
 html{scroll-behavior:smooth;}
 body{
     font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-    background:#080c18;
-    color:#e2e8f0;
-    min-height:100vh;
-    overflow-x:hidden;
+    background:#080c18;color:#e2e8f0;min-height:100vh;overflow-x:hidden;
 }
-
-/* ---- Animated background ---- */
 body::before{
     content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;
     background:
@@ -39,7 +34,6 @@ body::after{
     animation:twinkle 8s ease-in-out infinite alternate;
 }
 @keyframes twinkle{0%{opacity:0.6;}100%{opacity:1;}}
-
 @keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
 @keyframes shimmer{0%{background-position:-200% center;}100%{background-position:200% center;}}
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
@@ -48,12 +42,12 @@ body::after{
 
 .container{max-width:1400px;margin:0 auto;padding:32px 24px;}
 
-/* ---- Header ---- */
+/* Header */
 .header{
     text-align:center;padding:60px 32px 48px;
     background:linear-gradient(135deg, rgba(15,20,40,0.9) 0%, rgba(20,30,60,0.9) 100%);
-    border:1px solid rgba(99,102,241,0.15);
-    border-radius:24px;position:relative;overflow:hidden;
+    border:1px solid rgba(99,102,241,0.15);border-radius:24px;
+    position:relative;overflow:hidden;
     animation:fadeInUp 0.7s ease-out, border-glow 4s ease-in-out infinite;
 }
 .header::before{
@@ -75,11 +69,26 @@ body::after{
     -webkit-background-clip:text;-webkit-text-fill-color:transparent;
     letter-spacing:-0.03em;position:relative;
     animation:shimmer 5s linear infinite;margin-bottom:12px;
-    text-shadow:0 0 80px rgba(99,102,241,0.3);
 }
 .header .subtitle{color:#94a3b8;font-size:1.15em;font-style:italic;font-weight:400;position:relative;margin-bottom:24px;letter-spacing:0.03em;}
 .header .authors{color:#cbd5e1;font-size:0.95em;font-weight:500;position:relative;margin-bottom:10px;}
 .header .affiliations{color:#64748b;font-size:0.82em;line-height:1.9;position:relative;}
+
+/* Language toggle */
+.lang-toggle{
+    position:absolute;top:20px;right:24px;z-index:10;
+    display:flex;background:rgba(255,255,255,0.06);border-radius:12px;
+    border:1px solid rgba(255,255,255,0.1);overflow:hidden;
+    backdrop-filter:blur(12px);
+}
+.lang-btn{
+    padding:8px 18px;font-size:0.82em;font-weight:600;
+    cursor:pointer;transition:all 0.3s;border:none;
+    background:transparent;color:#94a3b8;
+    font-family:inherit;
+}
+.lang-btn.active{background:rgba(99,102,241,0.3);color:#e2e8f0;}
+.lang-btn:hover{color:#e2e8f0;}
 
 /* Badges */
 .badge-row{display:flex;justify-content:center;gap:12px;margin-top:24px;position:relative;flex-wrap:wrap;}
@@ -91,16 +100,14 @@ body::after{
 }
 .badge:hover{transform:translateY(-3px);border-color:rgba(255,255,255,0.3);box-shadow:0 4px 20px rgba(99,102,241,0.2);}
 .badge-arxiv{background:rgba(220,60,60,0.2);color:#fca5a5;border-color:rgba(220,60,60,0.3);}
-.badge-arxiv:hover{background:rgba(220,60,60,0.3);box-shadow:0 4px 20px rgba(220,60,60,0.2);}
+.badge-arxiv:hover{background:rgba(220,60,60,0.3);}
 .badge-github{background:rgba(255,255,255,0.08);color:#e2e8f0;border-color:rgba(255,255,255,0.15);}
 .badge-github:hover{background:rgba(255,255,255,0.15);}
 .badge-data{background:rgba(250,204,21,0.12);color:#fde68a;border-color:rgba(250,204,21,0.2);}
-.badge-data:hover{background:rgba(250,204,21,0.2);box-shadow:0 4px 20px rgba(250,204,21,0.15);}
-
-/* SVG icons in badges */
+.badge-data:hover{background:rgba(250,204,21,0.2);}
 .badge svg{width:16px;height:16px;fill:currentColor;flex-shrink:0;}
 
-/* ---- Info cards ---- */
+/* Info cards */
 .info-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px;}
 .info-card{
     background:rgba(15,20,40,0.6);backdrop-filter:blur(16px);
@@ -114,13 +121,9 @@ body::after{
 .info-card .card-title{
     display:flex;align-items:center;gap:10px;
     font-size:1.2em;font-weight:700;color:#e2e8f0;
-    margin-bottom:16px;padding-bottom:12px;
-    border-bottom:1px solid rgba(99,102,241,0.15);
+    margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(99,102,241,0.15);
 }
-.info-card .card-title .icon{
-    width:34px;height:34px;border-radius:10px;
-    display:flex;align-items:center;justify-content:center;font-size:1em;
-}
+.info-card .card-title .icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1em;}
 .icon-blue{background:rgba(59,130,246,0.15);color:#60a5fa;}
 .icon-green{background:rgba(16,185,129,0.15);color:#34d399;}
 .icon-purple{background:rgba(139,92,246,0.15);color:#a78bfa;}
@@ -134,7 +137,7 @@ body::after{
 .ftag-construct{background:rgba(16,185,129,0.12);color:#34d399;border:1px solid rgba(16,185,129,0.25);}
 .ftag-usage{background:rgba(139,92,246,0.12);color:#a78bfa;border:1px solid rgba(139,92,246,0.25);}
 
-/* ---- Section divider ---- */
+/* Divider */
 .divider{display:flex;align-items:center;gap:16px;margin:40px 0 28px;animation:fadeInUp 0.7s ease-out 0.3s backwards;}
 .divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(99,102,241,0.3),transparent);}
 .divider-text{font-size:1.3em;font-weight:700;color:#e2e8f0;display:flex;align-items:center;gap:10px;}
@@ -145,35 +148,30 @@ body::after{
     font-size:1em;box-shadow:0 4px 20px rgba(99,102,241,0.4);
 }
 
-/* ---- Model gallery: 6 in a row ---- */
+/* Model gallery */
 .model-section{animation:fadeInUp 0.7s ease-out 0.35s backwards;}
 .section-title{
     font-weight:700;font-size:1.1em;color:#e2e8f0;margin-bottom:16px;
     display:flex;align-items:center;gap:8px;
 }
-.section-title .st-icon{
-    width:28px;height:28px;border-radius:8px;
-    display:flex;align-items:center;justify-content:center;font-size:0.85em;
-}
+.section-title .st-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85em;}
 .st-blue{background:rgba(59,130,246,0.15);color:#60a5fa;}
 .st-violet{background:rgba(139,92,246,0.15);color:#a78bfa;}
 
 .model-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
 .model-card{
     background:rgba(15,20,40,0.7);border:2px solid rgba(99,102,241,0.1);
-    border-radius:14px;overflow:hidden;cursor:pointer;
-    transition:all 0.3s ease;
+    border-radius:14px;overflow:hidden;cursor:pointer;transition:all 0.3s ease;
 }
 .model-card:hover{border-color:rgba(99,102,241,0.4);box-shadow:0 6px 30px rgba(99,102,241,0.15);transform:translateY(-4px);}
 .model-card.active{border-color:#6366f1;box-shadow:0 6px 35px rgba(99,102,241,0.3);animation:glow-pulse 3s ease-in-out infinite;}
 .model-label{
     text-align:center;padding:10px;font-weight:600;font-size:0.82em;color:#94a3b8;
-    background:rgba(15,20,40,0.8);border-top:1px solid rgba(99,102,241,0.1);
-    transition:all 0.3s;
+    background:rgba(15,20,40,0.8);border-top:1px solid rgba(99,102,241,0.1);transition:all 0.3s;
 }
 .model-card.active .model-label{color:#a78bfa;background:rgba(99,102,241,0.08);}
 
-/* ---- Conversation panel ---- */
+/* Conversation */
 .conv-section{margin-top:24px;animation:fadeInUp 0.7s ease-out 0.45s backwards;}
 .conv-panel{
     background:rgba(15,20,40,0.5);backdrop-filter:blur(16px);
@@ -186,12 +184,10 @@ body::after{
 
 .conv-pair{margin-bottom:28px;}
 .conv-pair:last-child{margin-bottom:0;}
-
 .msg{padding:18px 22px;border-radius:14px;line-height:1.8;font-size:0.94em;margin-bottom:12px;position:relative;}
 .msg-q{
     background:linear-gradient(135deg,rgba(99,102,241,0.1),rgba(99,102,241,0.05));
-    color:#c7d2fe;border:1px solid rgba(99,102,241,0.2);
-    margin-right:60px;
+    color:#c7d2fe;border:1px solid rgba(99,102,241,0.2);margin-right:60px;
 }
 .msg-q::before{
     content:'User';position:absolute;top:-10px;left:18px;
@@ -201,8 +197,7 @@ body::after{
 }
 .msg-a{
     background:linear-gradient(135deg,rgba(16,185,129,0.08),rgba(16,185,129,0.03));
-    color:#a7f3d0;border:1px solid rgba(16,185,129,0.2);
-    margin-left:60px;
+    color:#a7f3d0;border:1px solid rgba(16,185,129,0.2);margin-left:60px;
 }
 .msg-a::before{
     content:'BrepLLM';position:absolute;top:-10px;right:18px;
@@ -211,34 +206,30 @@ body::after{
     box-shadow:0 2px 8px rgba(16,185,129,0.3);
 }
 
-/* ---- Citation ---- */
+/* Citation */
 .citation{
     background:rgba(15,20,40,0.6);backdrop-filter:blur(16px);
     border:1px solid rgba(99,102,241,0.12);border-radius:18px;
-    padding:28px 32px;margin-top:36px;
-    animation:fadeInUp 0.7s ease-out 0.5s backwards;
+    padding:28px 32px;margin-top:36px;animation:fadeInUp 0.7s ease-out 0.5s backwards;
 }
 .citation .card-title{display:flex;align-items:center;gap:10px;font-size:1.12em;font-weight:700;color:#e2e8f0;margin-bottom:12px;}
 .citation p{font-size:0.9em;color:#64748b;margin-bottom:12px;}
 .citation pre{
     background:rgba(15,20,40,0.8);border:1px solid rgba(99,102,241,0.15);
     border-radius:12px;padding:18px 20px;font-size:0.82em;overflow-x:auto;
-    white-space:pre-wrap;color:#94a3b8;line-height:1.6;
-    font-family:'JetBrains Mono',monospace;
+    white-space:pre-wrap;color:#94a3b8;line-height:1.6;font-family:'JetBrains Mono',monospace;
 }
-
-/* Footer */
 .footer{text-align:center;padding:28px;margin-top:24px;color:#475569;font-size:0.82em;}
 .footer a{color:#6366f1;text-decoration:none;}
 .footer a:hover{text-decoration:underline;}
 
-/* Responsive */
 @media(max-width:1200px){.model-grid{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:768px){
     .info-row{grid-template-columns:1fr;}
     .model-grid{grid-template-columns:repeat(2,1fr);}
     .header h1{font-size:2.6em;}
     .msg-q{margin-right:20px;}.msg-a{margin-left:20px;}
+    .lang-toggle{position:static;justify-content:center;margin-bottom:16px;}
 }
 </style>
 </head>
@@ -247,6 +238,12 @@ body::after{
 
 <!-- Header -->
 <div class="header">
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('zh')">ZH</button>
+    </div>
+
     <h1>BrepLLM</h1>
     <p class="subtitle">Native Boundary Representation Understanding with Large Language Models</p>
     <p class="authors">Liyuan Deng, Hao Guo, Yunpeng Bai, Yongkang Dai, Huaxi Huang, Yilei Shi</p>
@@ -264,7 +261,7 @@ body::after{
             <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.85 1.24 1.85 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
             Code
         </a>
-        <a href="#" class="badge badge-data">
+        <a href="https://huggingface.co/datasets/Liyuan03/BrepLLM_data" target="_blank" class="badge badge-data">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
             Dataset
         </a>
@@ -274,33 +271,33 @@ body::after{
 <!-- Info Cards -->
 <div class="info-row">
     <div class="info-card">
-        <div class="card-title"><span class="icon icon-blue">?</span>What is BrepLLM?</div>
-        <p>BrepLLM is a novel framework that enables large language models (LLMs) to directly understand and reason over native <strong>boundary representation (B-rep)</strong> data. Unlike previous approaches that rely on intermediate formats such as point clouds, meshes, or CAD command sequences, BrepLLM operates directly on the original geometric and topological structure of CAD models.</p>
-        <p>It introduces a <strong>hierarchical B-rep encoder</strong> that captures both geometric and topological information, aligned with language representations through <strong>cross-modal learning</strong>. The framework follows a two-stage design: cross-modal alignment + multi-stage fine-tuning.</p>
+        <div class="card-title"><span class="icon icon-blue">?</span><span data-i18n="what_title">What is BrepLLM?</span></div>
+        <p data-i18n="what_p1">BrepLLM is a novel framework that enables large language models (LLMs) to directly understand and reason over native <strong>boundary representation (B-rep)</strong> data. Unlike previous approaches that rely on intermediate formats such as point clouds, meshes, or CAD command sequences, BrepLLM operates directly on the original geometric and topological structure of CAD models.</p>
+        <p data-i18n="what_p2">It introduces a <strong>hierarchical B-rep encoder</strong> that captures both geometric and topological information, aligned with language representations through <strong>cross-modal learning</strong>. The framework follows a two-stage design: cross-modal alignment + multi-stage fine-tuning.</p>
     </div>
     <div class="info-card">
-        <div class="card-title"><span class="icon icon-green">&#9654;</span>About This Demo</div>
-        <p>This page showcases BrepLLM's ability to understand and reason about CAD models. Each sample below is a real <strong>STEP CAD file</strong> processed by BrepLLM.</p>
-        <p>For each model, BrepLLM answers questions about three aspects:</p>
+        <div class="card-title"><span class="icon icon-green">&#9654;</span><span data-i18n="about_title">About This Demo</span></div>
+        <p data-i18n="about_p1">This page showcases BrepLLM's ability to understand and reason about CAD models. Each sample below is a real <strong>STEP CAD file</strong> processed by BrepLLM.</p>
+        <p data-i18n="about_p2">For each model, BrepLLM answers questions about three aspects:</p>
         <div class="feature-tags">
-            <span class="ftag ftag-shape">&#9632; Shape &amp; Geometry</span>
-            <span class="ftag ftag-construct">&#9654; Construction Method</span>
-            <span class="ftag ftag-usage">&#9679; Usage &amp; Application</span>
+            <span class="ftag ftag-shape"><span data-i18n="tag_shape">&#9632; Shape &amp; Geometry</span></span>
+            <span class="ftag ftag-construct"><span data-i18n="tag_construct">&#9654; Construction Method</span></span>
+            <span class="ftag ftag-usage"><span data-i18n="tag_usage">&#9679; Usage &amp; Application</span></span>
         </div>
-        <p>Click any 3D model below to view the conversation.</p>
+        <p data-i18n="about_p3">Click any 3D model below to view the conversation.</p>
     </div>
 </div>
 
-<!-- Showcase Divider -->
+<!-- Divider -->
 <div class="divider">
     <div class="divider-line"></div>
-    <div class="divider-text"><span class="divider-icon">&#9654;</span>Showcase</div>
+    <div class="divider-text"><span class="divider-icon">&#9654;</span><span data-i18n="showcase">Showcase</span></div>
     <div class="divider-line"></div>
 </div>
 
-<!-- 3D Models: 6 in a row -->
+<!-- Models -->
 <div class="model-section">
-    <div class="section-title"><span class="st-icon st-blue">&#9632;</span>Select a CAD Model</div>
+    <div class="section-title"><span class="st-icon st-blue">&#9632;</span><span data-i18n="select_model">Select a CAD Model</span></div>
     <div class="model-grid">
         <div class="model-card active" data-model="00010085" onclick="selectModel('00010085')"><model-viewer src="data:model/gltf-binary;base64,Z2xURgIAAAAQDgAAxAQAAEpTT057InNjZW5lIjowLCJzY2VuZXMiOlt7Im5vZGVzIjpbMF19XSwiYXNzZXQiOnsidmVyc2lvbiI6IjIuMCIsImdlbmVyYXRvciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9taWtlZGgvdHJpbWVzaCJ9LCJhY2Nlc3NvcnMiOlt7ImNvbXBvbmVudFR5cGUiOjUxMjUsInR5cGUiOiJTQ0FMQVIiLCJidWZmZXJWaWV3IjowLCJjb3VudCI6MzQ4LCJtYXgiOls1OV0sIm1pbiI6WzBdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiYnl0ZU9mZnNldCI6MCwiYnVmZmVyVmlldyI6MSwiY291bnQiOjYwLCJtYXgiOlswLjc1LDAuMzQwOTA5MDkzNjE4MzkyOTQsMC42NzEzMjg2NjM4MjU5ODg4XSwibWluIjpbLTMuMjM2NjI3NTA1NjA0MzU3ZS0xNiwtMC4zNDA5MDkwOTM2MTgzOTI5NCwtMC4wNzg2NzEzMjg3MjM0MzA2M119LHsiY29tcG9uZW50VHlwZSI6NTEyMSwibm9ybWFsaXplZCI6dHJ1ZSwidHlwZSI6IlZFQzQiLCJieXRlT2Zmc2V0IjowLCJidWZmZXJWaWV3IjoyLCJjb3VudCI6NjAsIm1heCI6WzE0MCwxODAsMjIwLDI1NV0sIm1pbiI6WzE0MCwxODAsMjIwLDI1NV19XSwibWVzaGVzIjpbeyJuYW1lIjoidG1wNnkzdGhyNmcuc3RsIiwiZXh0cmFzIjp7ImhlYWRlciI6IlNUTCBFeHBvcnRlZCBieSBPcGVuQ0FTQ0FERSBbd3d3Lm9wZW5jYXNjYWRlLmNvbV1cdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDBcdTAwMDAiLCJwcm9jZXNzZWQiOnRydWV9LCJwcmltaXRpdmVz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" auto-rotate camera-controls touch-action="pan-y" style="width:100%;height:160px;background:rgba(15,20,40,0.6);border-radius:12px 12px 0 0;"></model-viewer><div class="model-label">00010085</div></div>
 <div class="model-card " data-model="00050022" onclick="selectModel('00050022')"><model-viewer src="data:model/gltf-binary;base64,Z2xURgIAAAAEJQAAmAQAAEpTT057InNjZW5lIjowLCJzY2VuZXMiOlt7Im5vZGVzIjpbMF19XSwiYXNzZXQiOnsidmVyc2lvbiI6IjIuMCIsImdlbmVyYXRvciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9taWtlZGgvdHJpbWVzaCJ9LCJhY2Nlc3NvcnMiOlt7ImNvbXBvbmVudFR5cGUiOjUxMjUsInR5cGUiOiJTQ0FMQVIiLCJidWZmZXJWaWV3IjowLCJjb3VudCI6MTIzNiwibWF4IjpbMjA3XSwibWluIjpbMF19LHsiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJieXRlT2Zmc2V0IjowLCJidWZmZXJWaWV3IjoxLCJjb3VudCI6MjA4LCJtYXgiOlswLjM3NSwwLjM3MjI2NTgxNTczNDg2MzMsMC43NV0sIm1pbiI6Wy0wLjM3NSwtMC4zNzIyNjU4MTU3MzQ4NjMzLDAuMF19LHsiY29tcG9uZW50VHlwZSI6NTEyMSwibm9ybWFsaXplZCI6dHJ1ZSwidHlwZSI6IlZFQzQiLCJieXRlT2Zmc2V0IjowLCJidWZmZXJWaWV3IjoyLCJjb3VudCI6MjA4LCJtYXgiOlsxNDAsMTgwLDIyMCwyNTVdLCJtaW4iOlsxNDAsMTgwLDIyMCwyNTVdfV0sIm1lc2hlcyI6W3sibmFtZSI6InRtcDlncmlybXh0LnN0bCIsImV4dHJhcyI6eyJoZWFkZXIiOiJTVEwgRXhwb3J0ZWQgYnkgT3BlbkNBU0NBREUgW3d3dy5vcGVuY2FzY2FkZS5jb21dXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwXHUwMDAwIiwicHJvY2Vzc2VkIjp0cnVlfSwicHJpbWl0aXZlcyI6W3siYXR0cmlidXRlcyI6eyJQT1NJVElPTiI6MSwiQ09MT1JfMCI6Mn0s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TAAAAH8AAABNAAAASwAAAH8AAABMAAAATQAAAH8AAAB+AAAATAAAAIAAAABLAAAASQAAAIAAAAB/AAAASwAAAIEAAACAAAAASQAAAGkAAABJAAAARwAAAGkAAACBAAAASQAAAF8AAACCAAAAgwAAAF8AAACDAAAAXgAAAF0AAACDAAAAhAAAAF0AAABeAAAAgwAAAGAAAACFAAAAggAAAGAAAACCAAAAXwAAAFwAAACEAAAAhgAAAFwAAABdAAAAhAAAAGEAAACHAAAAhQAAAGEAAACFAAAAYAAAAFsAAACGAAAAiAAAAFsAAABcAAAAhgAAAGIAAACJAAAAhwAAAGIAAACHAAAAYQAAAFoAAACIAAAAigAAAFoAAABbAAAAiAAAAGMAAACLAAAAiQAAAGMAAACJAAAAYgAAAFkAAACKAAAAjAAAAFkAAABaAAAAigAAAGQAAACNAAAAiwAAAGQAAACLAAAAYwAAAFgAAACMAAAAjgAAAFgAAABZAAAAjAAAAGUAAACNAAAAZAAAAI8AAACNAAAAZQAAAJAAAABYAAAAjgAAAJAAAABXAAAAWAAAAJEAAACPAAAAZQAAAJEAAABlAAAAZgAAAGcAAACRAAAAZgAAAJIAAABXAAAAkAAAAJIAAABWAAAAVwAAAJMAAACRAAAAZwAAAJQAAABWAAAAkgAAAJQAAABVAAAAVgAAAJUAAACTAAAAZwAAAJUAAABnAAAATgAAAJYAAABUAAAAVQAAAJYAAABVAAAAlAAAAJcAAACVAAAATgAAAJcAAABOAAAATwAAAJcAAABPAAAAUAAAAJgAAABTAAAAVAAAAJgAAABUAAAAlgAAAJkAAACXAAAAUAAAAJoAAABTAAAAmAAAAJoAAABSAAAAUwAAAJsAAABSAAAAmgAAAJsAAABQAAAAUQAAAJsAAABRAAAAUgAAAJsAAACZAAAAUAAAAH0AAAB7AAAAfAAAAH8AAACBAAAAaQAAAH8AAACAAAAAgQAAAH8AAAB9AAAAfgAAAH8AAAB6AAAAewAAAH8AAAB5AAAAegAAAH8AAAB4AAAAeQAAAH8AAAB3AAAAeAAAAH8AAAB2AAAAdwAAAH8AAAB1AAAAdgAAAH8AAAB0AAAAdQAAAH8AAABzAAAAdAAAAH8AAAByAAAAcwAAAH8AAABxAAAAcgAAAH8AAABwAAAAcQAAAH8AAABvAAAAcAAAAH8AAABuAAAAbwAAAH8AAABtAAAAbgAAAH8AAABsAAAAbQAAAH8AAABrAAAAbAAAAH8AAABqAAAAawAAAH8AAABoAAAAagAAAH8AAABpAAAAaAAAAH8AAAB7AAAAfQAAAJUAAACcAAAAnQAAAJcAAACcAAAAlQAAAJkAAACeAAAAnAAAAJkAAACcAAAAlwAAAJsAAACfAAAAngAAAJsAAACeAAAAmQAAAJoAAACgAAAAnwAAAJoAAACfAAAAmwAAAJgAAAChAAAAoAAAAJgAAACgAAAAmgAAAJYAAACiAAAAoQAAAJYAAAChAAAAmAAAAJQAAACjAAAAogAAAJQAAACiAAAAlgAAAJIAAACkAAAAowAAAJIAAACjAAAAlAAAAJAAAAClAAAApAAAAJAAAACmAAAApQAAAJAAAACkAAAAkgAAAI4AAACmAAAAkAAAAIwAAACmAAAAjgAAAIwAAACnAAAApgAAAIoAAACnAAAAjAAAAIoAAACoAAAApwAAAIgAAACoAAAAigAAAIgAAACpAAAAqAAAAIgAAACqAAAAqQAAAIYAAACqAAAAiAAAAIQAAACqAAAAhgAAAIQAAACrAAAAqgAAAIMAAACrAAAAhAAAAIMAAACsAAAAqwAAAIIAAACsAAAAgwAAAIIAAACtAAAArAAAAIUAAACtAAAAggAAAIUAAACuAAAArQAAAIcAAACuAAAAhQAAAIcAAACvAAAArgAAAIkAAACvAAAAhwAAAIkAAACwAAAArwAAAIsAAACwAAAAiQAAAIsAAACxAAAAsAAAAI0AAACxAAAAiwAAAI0AAACyAAAAsQAAAI8AAACyAAAAjQAAAI8AAACzAAAAsgAAAJEAAAC0AAAAswAAAJEAAAC1AAAAtAAAAJEAAACzAAAAjwAAAJMAAAC1AAAAkQAAAJUAAACdAAAAtQAAAJUAAAC1AAAAkwAAALYAAACsAAAArQAAALYAAAC3AAAArAAAALgAAACrAAAArAAAALgAAACsAAAAtwAAALkAAACtAAAArgAAALkAAAC2AAAArQAAALoAAACqAAAAqwAAALoAAACrAAAAuAAAALsAAACuAAAArwAAALsAAAC5AAAArgAAALwAAACpAAAAqgAAALwAAACqAAAAugAAAL0AAACvAAAAsAAAAL0AAAC7AAAArwAAAL4AAACoAAAAqQAAAL4AAACpAAAAvAAAAL8AAACwAAAAsQAAAL8AAAC9AAAAsAAAAMAAAACnAAAAqAAAAMAAAACoAAAAvgAAAMEAAACxAAAAsgAAAMEAAAC/AAAAsQAAAMIAAACmAAAApwAAAMIAAACnAAAAwAAAAMMAAADBAAAAsgAAALMAAADDAAAAsgAAAKUAAACmAAAAwgAAAKUAAADCAAAAxAAAALQAAADDAAAAswAAALQAAADFAAAAwwAAAMYAAADFAAAAtAAAAKQAAAClAAAAxAAAAKQAAADEAAAAxwAAALUAAADGAAAAtAAAAKMAAACkAAAAxwAAAKMAAADHAAAAyAAAAJ0AAADGAAAAtQAAAJ0AAADJAAAAxgAAAKIAAADIAAAAygAAAKIAAACjAAAAyAAAAJwAAADJAAAAnQAAAJwAAADLAAAAyQAAAJwAAADMAAAAywAAAKEAAADKAAAAzQAAAKEAAACiAAAAygAAAJ4AAADMAAAAnAAAAKAAAAChAAAAzQAAAKAAAADNAAAAzgAAAJ8AAACgAAAAzgAAAJ8AAADPAAAAzAAAAJ8AAADOAAAAzwAAAJ8AAADMAAAAngAAAMsAAADGAAAAyQAAAM8AAADLAAAAzAAAAM8AAADOAAAAzQAAAM8AAADNAAAAygAAAM8AAADKAAAAyAAAAM8AAADIAAAAxwAAAM8AAADHAAAAxAAAAM8AAADEAAAAwgAAAM8AAADCAAAAwAAAAM8AAADAAAAAvgAAAM8AAAC+AAAAvAAAAM8AAAC8AAAAugAAAM8AAAC6AAAAuAAAAM8AAAC4AAAAtwAAAM8AAAC3AAAAtgAAAM8AAAC2AAAAuQAAAM8AAAC5AAAAuwAAAM8AAAC7AAAAvQAAAM8AAAC9AAAAvwAAAM8AAAC/AAAAwQAAAM8AAADBAAAAwwAAAM8AAADDAAAAxQAAAM8AAADFAAAAxgAAAM8AAADGAAAAywAAACCyGL7TN12+AABAP7hXgb7ZLGW+AABAP7xSRL4sNo6+AABAPx8zSb5UPzK+AABAP7UCbr7O1fm9AABAP74Bmb67myC+AABAP7aivr0WVXu+AABAP1ga9b0gkqG+AABAP51+gr72p4C9AABAP1zHp749aqW9AABAP96ZAb2Ka4W+AABAP0KhJr1Eiqu+AABAP2Zmhr517pglAABAP83MrL5NoMQlAABAP96ZAT2Ka4W+AABAP0KhJj1Eiqu+AABAP51+gr72p4A9AABAP1zHp749aqU9AABAP7aivj0WVXu+AABAP1ga9T0gkqG+AABAP7UCbr7O1fk9AABAP74Bmb67myA+AABAPyCyGD7TN12+AABAP7xSRD4sNo6+AABAPx8zSb5UPzI+AABAP7hXgb7ZLGU+AABAPx8zST5UPzK+AABAP7hXgT7ZLGW+AABAP7xSRL4sNo4+AABAPyCyGL7TN10+AABAP74BmT67myC+AABAP7UCbj7O1fm9AABAP51+gj72p4C9AABAP1ga9b0gkqE+AABAP7aivr0WVXs+AABAP1zHpz49aqW9AABAP0KhJr1Eiqs+AABAP96ZAb2Ka4U+AABAP83MrD4AAAAAAABAP2Zmhj4AAAAAAABAP0KhJj1Eiqs+AABAP96ZAT2Ka4U+AABAP1zHpz49aqU9AABAP51+gj72p4A9AABAP7UCbj7O1fk9AABAP1ga9T0gkqE+AABAP7aivj0WVXs+AABAP74BmT67myA+AABAP7xSRD4sNo4+AABAPyCyGD7TN10+AABAP7hXgT7ZLGU+AABAPx8zST5UPzI+AABAP822j76co36+AABAPwkjWr5OA56+AABAP+8Bqr4mdDK+AABAPxQrCL7rhbO+AABAP7trur5gy7e9AABAP/QkOb2gmb6+AABAPwAAwL45edolAABAP/QkOT2gmb6+AABAP7trur5gy7c9AABAPxQrCD7rhbO+AABAP+8Bqr4mdDI+AABAPwkjWj5OA56+AABAP822j76co34+AABAP822jz6co36+AABAPwkjWr5OA54+AABAP+8Bqj4mdDK+AABAPxQrCL7rhbM+AABAP7truj5gy7e9AABAP/QkOb2gmb4+AABAPwAAwD4AAAAAAABAP/QkOT2gmb4+AABAP7truj5gy7c9AABAPxQrCD7rhbM+AABAP+8Bqj4mdDI+AABAPwkjWj5OA54+AABAP822jz6co34+AABAP2Zmhj4AAAAAmpkZP51+gj72p4A9mpkZP7UCbj7O1fk9mpkZPx8zST5UPzI+mpkZPyCyGD7TN10+mpkZP7aivj0WVXs+mpkZP96ZAT2Ka4U+mpkZP96ZAb2Ka4U+mpkZP7aivr0WVXs+mpkZPyCyGL7TN10+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jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P+MtNz/jLTc/4y03P8=" auto-rotate camera-controls touch-action="pan-y" style="width:100%;height:160px;background:rgba(15,20,40,0.6);border-radius:12px 12px 0 0;"></model-viewer><div class="model-label">00050022</div></div>
@@ -314,14 +311,14 @@ body::after{
 
 <!-- Conversation -->
 <div class="conv-section">
-    <div class="section-title"><span class="st-icon st-violet">&#9679;</span>BrepLLM Conversation</div>
+    <div class="section-title"><span class="st-icon st-violet">&#9679;</span><span data-i18n="conversation">BrepLLM Conversation</span></div>
     <div class="conv-panel" id="conv-panel"></div>
 </div>
 
 <!-- Citation -->
 <div class="citation">
-    <div class="card-title"><span class="icon icon-purple">&#10070;</span>Citation</div>
-    <p>If our work is helpful for your research or applications, please cite:</p>
+    <div class="card-title"><span class="icon icon-purple">&#10070;</span><span data-i18n="citation_title">Citation</span></div>
+    <p data-i18n="citation_desc">If our work is helpful for your research or applications, please cite:</p>
     <pre>@misc{deng2025brepllmnativeboundaryrepresentation,
       title={BrepLLM: Native Boundary Representation Understanding with Large Language Models},
       author={Liyuan Deng and Hao Guo and Yunpeng Bai and Yongkang Dai and Huaxi Huang and Yilei Shi},
@@ -337,19 +334,78 @@ body::after{
 <div class="footer">
     BrepLLM &copy; 2025 &middot; Northwestern Polytechnical University &middot; Shanghai AI Laboratory &middot; NUS<br>
     <a href="https://github.com/user-deng/BrepLLM" target="_blank">GitHub</a> &middot;
-    <a href="https://arxiv.org/abs/2512.16413" target="_blank">Paper</a>
+    <a href="https://arxiv.org/abs/2512.16413" target="_blank">Paper</a> &middot;
+    <a href="https://huggingface.co/datasets/Liyuan03/BrepLLM_data" target="_blank">Dataset</a>
 </div>
 
 </div>
 
 <script>
-const CONVERSATIONS = {"00010085": [{"question": "What does this 3D model look like? Describe its geometry.", "answer": "该模型为一个L形截面的直角弯管，其几何结构由以下部分组成：\n- 主体为一个长方体，沿长度方向呈L形弯曲。\n- 在L形弯折处，外侧壁面存在一个倒角过渡区域，形成平滑的圆角拐角。\n- 模型底部设有多个平行的横向凹槽或加强筋结构，贯穿整个长度方向。\n\n从三视图可推断：正面与顶面显示为带对角线分割的矩形（暗示L形拐角），侧面则清晰展示出L形轮廓及圆角过渡。"}, {"question": "How would you construct this part step by step in a CAD system?", "answer": "该部件可通过以下步骤在CAD系统中构建：\n\n1.  **创建基础长方体**：以L形拐角的外轮廓为基准，创建一个长方体作为主体结构。\n2.  **定义圆角拐角**：在L形弯折处，通过布尔运算或直接建模方式，添加一个倒角或圆角特征，使拐角处平滑过渡。\n3.  **添加底部加强筋**：在长方体底部，沿长度方向创建多个平行的横向凹槽或薄壁结构，形成加强筋。\n\n此方法基于三视图推断的几何关系进行构建。"}, {"question": "What kind of mechanical component could this be used as?", "answer": "此部件可作为机械系统中的**L形连接管件或支撑支架**，具体用途包括：\n\n- **流体/气体导管**：用于管道系统中改变流向的直角弯头，如通风、冷却液或压缩空气管道。\n- **结构支撑件**：用作设备或框架的L形支撑臂，提供刚性连接和空间定位。\n- **电气/电缆护套**：作为线缆通道的引导和保护结构。\n\n其L形截面和底部加强筋设计，兼顾了弯曲处的强度与安装时的空间适应性。"}], "00050022": [{"question": "Can you describe the main geometric features of this object?", "answer": "该物体是一个圆柱体，其侧面具有放射状的棱纹结构。从正面和侧面看，这些棱纹呈对称分布，从边缘向中心汇聚；从顶面看，这些棱纹表现为从中心点向外辐射的直线，形成扇形分割的外观。整体结构在三维空间中保持对称性，棱纹在圆柱表面均匀分布，增强了视觉上的纹理感和立体感。"}, {"question": "What modeling operations were likely used to create this shape?", "answer": "该形状可通过以下建模操作创建：\n\n1.  **创建基础圆柱体**：首先通过旋转或拉伸圆形截面生成一个标准圆柱体。\n2.  **添加放射状棱纹**：在圆柱体表面，通过在径向方向上创建一系列平行于中心轴的直线（或曲线），并将其作为边界特征进行布尔差集或雕刻操作，从而形成从边缘向中心汇聚的棱纹效果。这些棱纹在顶视图中表现为从中心点辐射出的直线。\n\n此方法在保持圆柱体整体形态的同时，通过表面特征实现了所需的纹理效果。"}, {"question": "In what engineering scenario would this part be applied?", "answer": "此部件适用于需要**结构强度与表面纹理结合**的工程场景，例如：\n\n1.  **机械传动部件**：如齿轮罩或轴承座，棱纹可增强摩擦力，防止滑动。\n2.  **流体容器或管道连接件**：棱纹可增加表面粗糙度，便于密封圈贴合或螺纹咬合。\n3.  **装饰性结构件**：如灯具外壳、仪表盘或展示架，棱纹提供视觉美感和触感。\n\n其核心优势在于：圆柱形提供良好的力学承载能力，而放射状棱纹在不破坏整体结构的前提下，增强了功能性或美学表现。"}], "00050228": [{"question": "Tell me about the shape and structure of this CAD model.", "answer": "该 CAD 模型为一个六角螺母结构。其主体为正六边形外轮廓，中心有一个圆形通孔。从三视图分析，该模型具有对称性：正面和侧面视图为矩形块体，内部含对角线分割；顶视图则清晰显示六边形外框与中心圆孔。\n\n结构上，它由一个六边形截面的实心体构成，中心区域通过布尔运算挖去一个圆柱形孔洞，形成标准螺母外形。所有表面均为平面或曲面（此处为平面），边缘光滑无倒角或圆角处理。"}, {"question": "Break down the construction process of this part.", "answer": "该零件可通过以下步骤构建：\n\n1.  **创建基础六边形截面**：以正六边形为轮廓，定义零件的横向截面。\n2.  **沿轴线拉伸成型**：将该六边形截面沿中心轴线拉伸，形成一个实心六角柱体。\n3.  **创建中心孔洞**：绘制一个圆形截面，与六角柱体中心对齐。\n4.  **布尔差集运算**：将圆形截面沿轴线拉伸后，对六角柱体执行布尔差集（减法）操作，从而在中心挖出通孔。\n\n最终得到具有六角外轮廓和中心圆孔的标准螺母形状。"}, {"question": "What is the potential real-world function of this component?", "answer": "该组件为标准六角螺母，其主要功能是与螺栓或螺杆配合使用，用于紧固机械部件。\n\n在实际应用中：\n-   它通过内孔与螺栓的外螺纹啮合。\n-   其六角外轮廓便于使用扳手或套筒等工具施加扭矩，实现拧紧或松开。\n-   通常与垫圈、螺栓和被连接件共同组成紧固连接结构。\n\n广泛应用于汽车、建筑、机械设备、电子设备等各种工业领域。"}], "00412191": [{"question": "Describe the overall form and key geometric characteristics.", "answer": "该物体由上下两部分构成。下部为方形基座，其顶面呈斜切面。上部为方形平台，其底面与下部基座顶面相接，顶部表面布满放射状的三角形网格结构。\n\n从几何特征看：\n- 下部基座：方形截面，顶面为斜切平面。\n- 上部平台：方形截面，其顶面为带有放射状三角网格的平面。\n- 两部分通过共面连接，形成一体化结构。\n\n整体形态简洁，具有明确的轴对称性，放射状网格赋予顶部表面独特的纹理和视觉效果。"}, {"question": "How are the different parts of this model assembled together?", "answer": "该模型由上下两部分通过共面连接组装而成：\n\n1.  下部基座：方形截面，其顶面为斜切平面。\n2.  上部平台：方形截面，其底面与下部基座的斜切顶面完全贴合。\n\n组装方式为**布尔并集（Boolean Union）**：将上部平台的底面与下部基座的顶面进行精确对齐后，执行布尔并集操作，使二者无缝融合为一个整体实体。这种连接方式保证了结构的连续性和稳定性，同时形成了独特的斜切过渡效果。"}, {"question": "What industry or application might this part belong to?", "answer": "该部件形态独特，具有以下特征：\n\n- 上下结构分明，底部为斜切基座，顶部为带放射状网格的平台。\n- 放射状网格表面可能用于增强结构强度或实现特定功能（如散热、减震、装饰）。\n\n基于此形态，该部件可能属于以下行业或应用：\n\n1.  **工业设备**：作为机器底座或支撑结构，放射状网格可减轻重量并提高刚度。\n2.  **建筑构件**：用作装饰性或功能性构件，如幕墙单元、遮阳板或艺术装置。\n3.  **消费电子**：作为散热器底座或外壳组件，网格结构利于空气流通。\n4.  **航空航天**：轻量化结构件，网格设计有助于减轻重量同时保持强度。\n\n其核心价值在于将结构支撑与功能性/美学设计结合。"}], "00431844": [{"question": "What are the main shapes and features you can identify in this model?", "answer": "该模型为L形支架结构。主体由垂直杆件与水平支臂构成直角连接，垂直部分贯穿上下，水平支臂末端呈圆形轮廓。垂直杆件上分布多个通孔，用于螺栓固定。整体结构具备对称性，垂直面与水平面分别呈现矩形截面特征。"}, {"question": "Explain how this CAD model could be built using standard operations.", "answer": "The model can be constructed by extruding a rectangular profile to form the vertical bar, then performing boolean union with a separate L-shaped extruded profile for the horizontal arm. Finally, add through-holes via boolean difference operations on the main body to create the mounting holes."}, {"question": "What practical purpose could this part serve?", "answer": "This part serves as a mounting bracket or support bracket. Its L-shape provides stable attachment to vertical surfaces while allowing horizontal components to be secured via the through-holes, commonly used in machinery, furniture, or structural assemblies requiring rigid positioning."}], "00431849": [{"question": "Give me a detailed description of this object's geometry.", "answer": "该物体为一个具有方形底座的柱状结构。从三视图分析：正面和顶面均为矩形，表明其主体为长方体；侧面视图显示底座为方形，中心有圆形通孔，四周对称分布四个圆形通孔，且底座下部有一凹槽。\n\n几何构成如下：\n1. 主体为一长方体。\n2. 在长方体顶面中心区域，通过布尔运算移除一个圆形实体，形成中心通孔。\n3. 在长方体侧面（或底面）对称位置，通过布尔运算移除四个圆形实体，形成四个侧向通孔。\n4. 在长方体底部，沿长度方向切去一部分，形成一个凹槽。\n\n整体结构呈对称性，中心通孔与四个侧孔共同构成类似“十字”或“星形”的布局。"}, {"question": "Analyze the construction method and assembly of this model.", "answer": "该模型可通过以下步骤构造：\n\n1.  **创建基础体**：以方形截面为基础，沿Z轴方向进行拉伸，形成一个长方体主体。\n2.  **创建中心孔**：在长方体顶面中心位置，创建一个圆形截面，并执行布尔差集操作，从主体中移除该圆柱体，形成中心通孔。\n3.  **创建侧孔**：在长方体侧面（或底面）的四个对称位置，分别创建圆形截面，并执行布尔差集操作，移除形成四个侧向通孔。\n4.  **创建凹槽**：在长方体底部，沿长度方向创建一个矩形截面，并执行布尔差集操作，切去一部分形成底部凹槽。\n\n该模型为单体结构，无需组装。所有特征均通过布尔运算（差集）直接从基础长方体上生成。"}, {"question": "Where might this type of component typically be used?", "answer": "此类型组件通常用于需要精密定位和多方向安装的机械或电子设备中，常见于：\n\n1.  **机械夹具与定位块**：方形底座提供稳定支撑，中心孔用于安装螺栓或轴，侧孔用于辅助定位或连接其他部件。\n2.  **电子设备外壳/支架**：中心孔用于固定电路板或主板，侧孔用于安装螺丝或连接线缆，凹槽可用于卡扣或散热设计。\n3.  **自动化设备中的导向件或滑块**：通过中心孔和侧孔实现精确的轴向与径向定位，凹槽可配合导轨使用。\n\n其对称结构和多孔设计使其在需要高精度、多点固定的场合非常实用。"}]};
+const CONVERSATIONS = {"00010085": {"en": [{"question": "What does this 3D model look like? Describe its geometry.", "answer": "The object consists of an L-shaped extruded profile with a chamfered inner corner. The top face is rectangular, divided symmetrically by a central vertical plane into two identical triangular half-planes. The bottom face is a smaller rectangular prism, aligned centrally beneath the main body, creating a stepped base."}, {"question": "How would you construct this part step by step in a CAD system?", "answer": "Begin with a rectangular sketch in the front plane. Extrude it to form the main L-shaped body. Create a separate rectangular sketch aligned to the bottom face of the L-shape, then extrude it downward to form the stepped base. Finally, apply a chamfer to the inner corner where the two legs of the L-shape meet."}, {"question": "What kind of mechanical component could this be used as?", "answer": "This component could serve as a structural bracket or support, where the L-shape provides mounting points and the stepped base offers stability. The chamfered corner reduces stress concentration, making it suitable for load-bearing applications in machinery or furniture assemblies."}], "zh": [{"question": "请描述这个三维模型的整体外形和几何特征。", "answer": "该模型为L形结构，由两个相互垂直的矩形截面组成，形成直角拐角。主截面为竖直矩形，次截面为水平矩形，二者在角落处平滑过渡。整体外形呈阶梯状，底部有多个平行的水平切口，形成类似台阶或槽口的结构。几何特征包括：两个相互垂直的平面构成主体框架，拐角处存在一个倒角或圆角过渡，底部具有多层平行凹槽，所有边缘均为直线或圆弧，无曲面。"}, {"question": "在CAD系统中如何一步步构建这个零件？", "answer": "在CAD系统中，可通过以下步骤构建该零件：\n\n1.  创建一个竖直方向的矩形截面，作为L形结构的主臂。\n2.  创建一个水平方向的矩形截面，与主臂垂直相交，形成L形拐角。\n3.  将两个截面进行布尔并集操作，合并为整体L形实体。\n4.  在拐角处添加倒角或圆角特征，实现平滑过渡。\n5.  在底部沿长度方向创建多个平行的水平槽口，通过拉伸切除或阵列方式生成。\n\n此方法基于基本几何体组合与布尔运算，精确控制各部分尺寸和相对位置。"}, {"question": "这个零件可以用作什么类型的机械部件？", "answer": "该零件可作为机械结构中的L形支撑件或连接支架，常用于固定、导向或承载作用。其底部的多层槽口设计可用于安装螺栓或卡扣，实现与其他部件的紧固连接。拐角处的倒角结构有助于装配时避免应力集中，并方便工具操作。整体结构紧凑，适用于空间受限的机械装配场景。"}]}, "00050022": {"en": [{"question": "Can you describe the main geometric features of this object?", "answer": "The object is a cylinder with a radially segmented surface. Its top and bottom faces are circular, and its lateral surface is composed of multiple triangular facets radiating from the center to the circumference, creating a fluted or pleated appearance. The segmentation is uniform around the circumference, forming a symmetrical pattern. The overall geometry suggests a cylindrical shell with internal radial ribs or grooves, maintaining constant diameter along its height."}, {"question": "What modeling operations were likely used to create this shape?", "answer": "The shape was likely created by first constructing a cylindrical base. Then, a radial pattern of triangular facets was generated using lofting or sweeping along radial paths from the center to the outer edge. These facets were then extruded radially inward to form the segmented surface, possibly via boolean operations or surface modeling techniques to create the fluted geometry while preserving the cylindrical boundary."}, {"question": "In what engineering scenario would this part be applied?", "answer": "This part would be applied in engineering scenarios requiring a cylindrical component with enhanced surface area or structural rigidity, such as a fluted pipe joint, decorative casing, or heat exchanger finned tube. The radial segmentation improves thermal dissipation, fluid turbulence, or aesthetic appeal while maintaining cylindrical symmetry for mounting or alignment within assemblies."}], "zh": [{"question": "这个物体的主要几何特征是什么？", "answer": "该物体是一个圆柱体，其外表面被一系列从中心向边缘辐射的直线分割线覆盖。整体结构保持圆柱形轮廓，但表面具有规则的扇形分区特征。"}, {"question": "创建这个形状可能使用了哪些建模操作？", "answer": "该形状可通过以下建模操作创建：\n\n1. 以圆形截面进行旋转扫掠，生成圆柱体基础。\n2. 在圆柱体表面添加一组径向分割线，通过阵列或复制操作形成规则的扇形分区。\n3. 可选：对分割线进行拉伸或加厚处理，使其成为实体表面特征。\n\n核心操作是旋转生成圆柱体，并在其表面进行规律性分割。"}, {"question": "这个零件适用于哪些工程场景？", "answer": "该零件适用于需要圆柱形结构与表面分区特征的工程场景，例如：\n\n- 机械传动部件（如齿轮罩、轴承座），其表面分区可便于装配或散热。\n- 电气元件外壳，分区设计有助于内部布线或模组安装。\n- 流体容器或管道配件，表面分割可增强结构强度或便于密封处理。\n- 装饰性或功能性构件，如灯具罩、展示架等，分区带来视觉层次。\n\n其核心优势在于规则的圆柱形态与表面扇形分区，兼顾结构稳定性和功能分区需求。"}]}, "00050228": {"en": [{"question": "Tell me about the shape and structure of this CAD model.", "answer": "The object is a hexagonal prism with a circular hole coaxially aligned through its center. The top and bottom faces are regular hexagons, and the lateral surfaces are six identical rectangular planes connecting corresponding sides of the hexagonal ends. The internal cylindrical void runs perpendicular to the hexagonal faces, creating a hollow structure. All edges are straight lines, and all faces are planar polygons."}, {"question": "Break down the construction process of this part.", "answer": "The part can be constructed by first extruding a regular hexagon to form the hexagonal prism. Then, create a circular profile aligned with the prism’s central axis and perform a boolean subtraction operation to remove the cylindrical void from the center of the prism. This results in the final hollow hexagonal shape."}, {"question": "What is the potential real-world function of this component?", "answer": "This component functions as a hexagonal nut or bolt head with an internal through-hole. It is designed for fastening applications, where a threaded rod or bolt passes through the central hole and is secured by tightening against another surface. The hexagonal outer shape provides multiple flat sides for wrenches or sockets to grip during assembly or disassembly."}], "zh": [{"question": "请介绍这个CAD模型的形状和结构。", "answer": "该CAD模型为一个六角螺母结构。主体为正六边形外轮廓，中心贯穿一圆形通孔。六边形侧面与圆孔相交处形成六个对称的斜面过渡，构成典型的螺母外形。整体为中空薄壁结构，外表面为六边形柱体，内孔为圆柱形贯通孔。几何上，外轮廓六边形与内孔圆柱在轴向完全同心，且六边形各边与圆孔边缘存在精确的相贯关系，确保结构强度与装配功能。"}, {"question": "请分解这个零件的构造过程。", "answer": "该零件可通过以下步骤构造：\n\n1. 创建一个正六边形截面，作为零件的外轮廓基础。\n2. 以该六边形为基准，沿轴向拉伸形成六边形柱体。\n3. 在柱体中心创建一个圆形截面，并沿轴向拉伸形成贯通孔。\n4. 将圆孔与六边形柱体执行布尔差集操作，从柱体中移除内部圆柱体，形成中空结构。\n\n最终结构为：六边形柱体内部包含一个同心贯通圆孔，六边形侧壁与圆孔相交处自然形成六个斜面过渡。"}, {"question": "这个组件在现实中可能有什么功能？", "answer": "该组件为标准六角螺母，其主要功能是与螺栓或螺杆配合使用，用于紧固机械部件。通过旋入螺栓，利用螺母的内孔与螺栓外螺纹啮合，实现对两个或多个零件的轴向连接和夹紧。其六边形外轮廓便于使用扳手或套筒工具进行手动或机械拧紧操作，提供可靠的扭矩传递能力，广泛应用于机械设备、建筑结构及日常五金装配中。"}]}, "00412191": {"en": [{"question": "Describe the overall form and key geometric characteristics.", "answer": "The object consists of a rectangular prism base with a truncated pyramid-like structure on top. The upper section features a series of inward-sloping triangular facets forming a stepped, concave profile.The overall form combines orthogonal and angled surfaces, creating a geometrically complex, multi-faceted shape with distinct horizontal layers."}, {"question": "How are the different parts of this model assembled together?", "answer": "The model is assembled by combining two primary components: a lower rectangular prism and an upper truncated pyramidal structure. The upper structure is positioned coaxially atop the base, with its bottom face aligned to the top face of the prism. The upper component's inward-sloping facets are formed by boolean operations or extrusion paths that intersect the base’s top surface, creating a stepped, concave profile. The assembly relies on positional alignment and geometric continuity between the planar top face of the base and the polygonal base of the upper structure, ensuring structural integration without gaps or overlaps."}, {"question": "What industry or application might this part belong to?", "answer": "This part likely belongs to the aerospace or automotive industry, serving as a structural bracket, mounting plate, or housing component. Its geometric complexity, with stepped facets and radial symmetry, suggests it may be designed for precise mechanical fitment, weight optimization, or integration with other components requiring multi-directional load distribution. The truncated pyramidal top could accommodate fasteners, sensors, or internal mechanisms, making it suitable for applications demanding both structural rigidity and functional versatility."}], "zh": [{"question": "请描述这个模型的整体形态和关键几何特征。", "answer": "该模型由上下两部分构成。下部为一个矩形基座，其顶面呈斜面过渡。上部为一个方形平台，平台顶面中心区域被分割成放射状的扇形网格，边缘与平台外框形成阶梯状过渡。整体形态为带网格纹理的阶梯式结构，关键几何特征包括矩形基座、斜面过渡、方形平台及中心放射状扇形网格。"}, {"question": "这个模型的各部分是如何组装在一起的？", "answer": "该模型通过布尔并集操作组装。首先创建一个矩形基座，其顶面具有斜面过渡特征；然后创建一个方形平台，其顶面中心区域为放射状扇形网格结构；最后将方形平台放置于矩形基座的顶部，并与之进行布尔并集操作，使两者在几何上完全融合为一体。"}, {"question": "这个零件可能属于哪个行业或应用领域？", "answer": "该零件形态符合工业机械或自动化设备中的支撑结构或防护罩特征，可能应用于机床、机器人或自动化装配线等场景，用于承载、固定或保护内部组件。"}]}, "00431844": {"en": [{"question": "What are the main shapes and features you can identify in this model?", "answer": "The object consists of an L-shaped bracket with a vertical stem and horizontal arm. The vertical stem features a threaded section near its base and a smooth upper portion. The horizontal arm has a circular hole near its end. Both arms are connected by a curved transition section. The overall structure is symmetrical about the vertical axis, with holes positioned for mounting or fastening."}, {"question": "Explain how this CAD model could be built using standard operations.", "answer": "The model can be constructed by extruding a profile to form the vertical stem, then adding a separate extruded feature for the horizontal arm via boolean union. A filleted transition connects the stem and arm. Threaded geometry is added to the base of the stem using helical extrusion or screw thread generation. Circular holes are created via subtractive boolean operations on the solid body."}, {"question": "What practical purpose could this part serve?", "answer": "This part serves as a mounting bracket, likely for securing components in machinery or structural assemblies. The L-shape provides angular support, the threaded section allows for fastener attachment, and the holes enable bolt or pin connections. Its design suggests use in applications requiring rigid positioning and load-bearing capability."}], "zh": [{"question": "你能识别出这个模型中的主要形状和特征吗？", "answer": "该模型为L形支架结构。主体由一根长直杆构成，其一端垂直延伸形成支臂，另一端连接一个带有三个通孔的法兰盘。法兰盘与主杆呈直角相交，整体结构具有明显的L形轮廓。"}, {"question": "使用标准CAD操作如何构建这个模型？", "answer": "该模型可通过以下标准CAD操作构建：\n\n1. 创建一根长直杆作为主体结构。\n2. 在直杆一端垂直创建支臂，形成L形基本框架。\n3. 在支臂末端添加一个法兰盘，通过布尔运算或拉伸操作实现。\n4. 在法兰盘上创建三个通孔，用于装配连接。\n\n整个过程以直杆为基础，通过几何变换和布尔操作完成最终结构。"}, {"question": "这个零件能起到什么实际作用？", "answer": "该零件为L形支架，主要用于连接、固定或支撑其他部件。法兰盘上的通孔便于螺栓或销钉装配，实现与其他结构件的刚性连接。其L形结构可提供多方向安装空间，常用于机械装配中的定位与承载功能。"}]}, "00431849": {"en": [{"question": "Give me a detailed description of this object's geometry.", "answer": "The object is a rectangular prism with a central cylindrical bore and four through-holes. The main body is a long, slender rectangular block. A circular hole runs coaxially through the center of the prism from end to end. Four smaller, circular through-holes are positioned symmetrically near each corner of the top and bottom faces, aligned perpendicular to the central axis. The side walls connecting the top and bottom faces feature chamfered edges at the corners where the through-holes exit. The overall structure is symmetric about its central longitudinal axis."}, {"question": "Analyze the construction method and assembly of this model.", "answer": "The model is constructed by first creating a rectangular prism. A cylindrical feature is then extruded through the center of the prism to form the central bore. Four smaller circular holes are created via boolean subtraction, positioned symmetrically near each corner of the top and bottom faces. Chamfered edges are added at the corners where these holes intersect the side walls. No assembly is required as all features are integrated into a single solid body."}, {"question": "Where might this type of component typically be used?", "answer": "This component is typically used as a mounting bracket or base plate in mechanical assemblies. The central bore allows for axial alignment with a shaft or pin, while the four through-holes provide secure attachment points using bolts or screws. The chamfered edges facilitate easier assembly and prevent damage to fasteners during insertion. Common applications include machinery bases, structural supports, or fixtures requiring precise positioning and robust mounting."}], "zh": [{"question": "请详细描述这个物体的几何形状。", "answer": "该物体为一个具有方形截面的长方体柱体，其底面为正方形，侧面存在四个对称分布的圆形通孔。在柱体顶部中央位置，设有一个贯穿整个柱体高度的圆形通孔。物体整体呈直立状，几何结构对称，由单一实体构成，无附加或镂空结构。"}, {"question": "请分析这个模型的构造方法和组装方式。", "answer": "该模型可由单一实体构造：首先创建一个方形截面的长方体柱体作为基体。接着，在柱体底面中心位置，通过布尔运算挖去一个圆形通孔。最后，在柱体顶部中央位置，沿轴向贯穿整个柱体高度，再挖去一个圆形通孔。四个侧面的圆形通孔通过在底面相应位置进行布尔减法操作形成。整体为单体结构，无需组装。"}, {"question": "这种类型的组件通常用在什么地方？", "answer": "这种组件通常用作机械结构中的支撑件或连接件，例如用于固定轴、安装传感器或作为设备的基座。其顶部贯穿孔便于穿入螺栓或销钉，实现与其他部件的轴向连接；侧面通孔可用于安装定位销或线缆通道。方形截面提供良好的抗弯和抗扭性能，适用于需要稳定承载力的场合，如工业设备底座、自动化设备支架或精密仪器的支撑结构。"}]}};
+
+const I18N = {
+    en: {
+        what_title: "What is BrepLLM?",
+        what_p1: 'BrepLLM is a novel framework that enables large language models (LLMs) to directly understand and reason over native <strong>boundary representation (B-rep)</strong> data. Unlike previous approaches that rely on intermediate formats such as point clouds, meshes, or CAD command sequences, BrepLLM operates directly on the original geometric and topological structure of CAD models.',
+        what_p2: 'It introduces a <strong>hierarchical B-rep encoder</strong> that captures both geometric and topological information, aligned with language representations through <strong>cross-modal learning</strong>. The framework follows a two-stage design: cross-modal alignment + multi-stage fine-tuning.',
+        about_title: "About This Demo",
+        about_p1: 'This page showcases BrepLLM\'s ability to understand and reason about CAD models. Each sample below is a real <strong>STEP CAD file</strong> processed by BrepLLM.',
+        about_p2: "For each model, BrepLLM answers questions about three aspects:",
+        about_p3: "Click any 3D model below to view the conversation.",
+        tag_shape: "&#9632; Shape & Geometry",
+        tag_construct: "&#9654; Construction Method",
+        tag_usage: "&#9679; Usage & Application",
+        showcase: "Showcase",
+        select_model: "Select a CAD Model",
+        conversation: "BrepLLM Conversation",
+        citation_title: "Citation",
+        citation_desc: "If our work is helpful for your research or applications, please cite:",
+    },
+    zh: {
+        what_title: "什么是 BrepLLM？",
+        what_p1: 'BrepLLM 是一个创新框架，使大语言模型（LLM）能够直接理解和推理原生<strong>边界表示（B-rep）</strong>数据。与依赖点云、网格或 CAD 命令序列等中间格式的方法不同，BrepLLM 直接在 CAD 模型的原始几何和拓扑结构上进行操作。',
+        what_p2: '它引入了<strong>层次化 B-rep 编码器</strong>，捕获几何和拓扑信息，并通过<strong>跨模态学习</strong>与语言表示对齐。框架采用两阶段设计：跨模态对齐 + 多阶段微调。',
+        about_title: "关于此演示",
+        about_p1: '本页展示了 BrepLLM 理解和推理 CAD 模型的能力。下方每个示例都是由 BrepLLM 处理的真实 <strong>STEP CAD 文件</strong>。',
+        about_p2: "对于每个模型，BrepLLM 从三个方面回答问题：",
+        about_p3: "点击下方任意 3D 模型查看对话。",
+        tag_shape: "&#9632; 形状与几何",
+        tag_construct: "&#9654; 构造方法",
+        tag_usage: "&#9679; 用途与应用",
+        showcase: "展示",
+        select_model: "选择 CAD 模型",
+        conversation: "BrepLLM 对话",
+        citation_title: "引用",
+        citation_desc: "如果我们的工作对您的研究或应用有帮助，请引用：",
+    }
+};
+
+let currentLang = 'en';
+let currentModel = '00010085';
+
+function setLang(lang) {
+    currentLang = lang;
+    // Update toggle buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.trim() === lang.toUpperCase());
+    });
+    // Update i18n texts
+    const texts = I18N[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (texts[key]) el.innerHTML = texts[key];
+    });
+    // Re-render conversation in new language
+    renderConversation(currentModel);
+}
 
 function renderConversation(name) {
+    currentModel = name;
     const panel = document.getElementById('conv-panel');
-    const convs = CONVERSATIONS[name];
-    if (!convs) { panel.innerHTML = '<p style="color:#64748b;">No conversation data.</p>'; return; }
+    const modelData = CONVERSATIONS[name];
+    if (!modelData) { panel.innerHTML = '<p style="color:#64748b;">No data.</p>'; return; }
 
+    const convs = modelData[currentLang] || modelData['en'] || [];
     let html = '';
     convs.forEach(item => {
         let answer = item.answer
@@ -371,6 +427,7 @@ function selectModel(name) {
     renderConversation(name);
 }
 
+// Init
 renderConversation('00010085');
 </script>
 </body>
