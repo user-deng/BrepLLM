@@ -19,6 +19,10 @@ Key contributions:
 
 ## Architecture
 
+<div align="center">
+<img src="Framework_V2.png" width="90%">
+</div>
+
 The framework follows a two-stage design:
 1. **Cross-modal Alignment Stage**: Learns a shared embedding space between B-rep models and text descriptions.
 2. **Multi-stage Fine-tuning**: Integrates the B-rep encoder into a large language model, enabling geometric reasoning and language-based understanding tasks.
