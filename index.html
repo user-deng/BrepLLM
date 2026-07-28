@@ -71,6 +71,14 @@ body::after{
     animation:shimmer 5s linear infinite;margin-bottom:12px;
 }
 .header .subtitle{color:#94a3b8;font-size:1.15em;font-style:italic;font-weight:400;position:relative;margin-bottom:24px;letter-spacing:0.03em;}
+.header .venue{
+    display:inline-block;position:relative;margin-bottom:22px;
+    padding:7px 20px;border-radius:24px;font-size:0.9em;font-weight:700;
+    letter-spacing:0.05em;color:#fde68a;
+    background:linear-gradient(135deg,rgba(217,119,6,0.28),rgba(180,83,9,0.22));
+    border:1px solid rgba(251,191,36,0.45);
+    box-shadow:0 4px 20px rgba(217,119,6,0.25);backdrop-filter:blur(12px);
+}
 .header .authors{color:#cbd5e1;font-size:0.95em;font-weight:500;position:relative;margin-bottom:10px;}
 .header .affiliations{color:#64748b;font-size:0.82em;line-height:1.9;position:relative;}
 
@@ -246,11 +254,13 @@ body::after{
 
     <h1>BrepLLM</h1>
     <p class="subtitle">Native Boundary Representation Understanding with Large Language Models</p>
-    <p class="authors">Liyuan Deng, Hao Guo, Yunpeng Bai, Yongkang Dai, Huaxi Huang, Yilei Shi</p>
+    <div class="venue">&#127942; ECCV 2026</div>
+    <p class="authors">Liyuan Deng, Hao Guo, Yongkang Dai, Yunpeng Bai, Yifan Zhu, Yuanyuan Gao, Huaxi Huang, Yilei Shi</p>
     <p class="affiliations">
         <sup>1</sup>Northwestern Polytechnical University &middot;
         <sup>2</sup>Shanghai Artificial Intelligence Laboratory &middot;
-        <sup>3</sup>National University of Singapore
+        <sup>3</sup>National University of Singapore &middot;
+        <sup>4</sup>Hong Kong University of Science and Technology
     </p>
     <div class="badge-row">
         <a href="https://arxiv.org/abs/2512.16413" target="_blank" class="badge badge-arxiv">
@@ -319,20 +329,20 @@ body::after{
 <div class="citation">
     <div class="card-title"><span class="icon icon-purple">&#10070;</span><span data-i18n="citation_title">Citation</span></div>
     <p data-i18n="citation_desc">If our work is helpful for your research or applications, please cite:</p>
-    <pre>@misc{deng2025brepllmnativeboundaryrepresentation,
-      title={BrepLLM: Native Boundary Representation Understanding with Large Language Models},
-      author={Liyuan Deng and Hao Guo and Yunpeng Bai and Yongkang Dai and Huaxi Huang and Yilei Shi},
-      year={2025},
+    <pre>@misc{deng2026brepllmenablinglargelanguage,
+      title={BrepLLM: Enabling Large Language Models to Understand Boundary Representations}, 
+      author={Liyuan Deng and Hao Guo and Yongkang Dai and Yunpeng Bai and Yifan Zhu and Yuanyuan Gao and Huaxi Huang and Yilei Shi},
+      year={2026},
       eprint={2512.16413},
       archivePrefix={arXiv},
       primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2512.16413},
+      url={https://arxiv.org/abs/2512.16413}, 
 }</pre>
 </div>
 
 <!-- Footer -->
 <div class="footer">
-    BrepLLM &copy; 2025 &middot; Northwestern Polytechnical University &middot; Shanghai AI Laboratory &middot; NUS<br>
+    BrepLLM &copy; 2026 &middot; NPU &middot; Shanghai AI Laboratory &middot; NUS &middot; HKUST<br>
     <a href="https://github.com/user-deng/BrepLLM" target="_blank">GitHub</a> &middot;
     <a href="https://arxiv.org/abs/2512.16413" target="_blank">Paper</a> &middot;
     <a href="https://huggingface.co/datasets/Liyuan03/BrepLLM_data" target="_blank">Dataset</a>
